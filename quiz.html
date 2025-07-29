@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plant Quiz | YourPlantSite</title>
+  <link rel="stylesheet" href="quiz.css">
+  <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0fff4;
+  margin: 0;
+  background: url('bg9.jpg') no-repeat center center;
+  padding: 20px;
+  color: #333;
+}
+
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 30px;
+  color: #2f5d34;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.quiz-intro {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.question {
+  margin-bottom: 25px;
+}
+
+.question p {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+.submit-btn {
+  background-color: #3c9154;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 30px auto 0;
+}
+
+.submit-btn:hover {
+  background-color: #2f5d34;
+}
+
+/* Result box */
+.result-box {
+  background-color: #e6f7ea;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.result-box h2 {
+  color: #2f5d34;
+  margin-bottom: 10px;
+}
+
+.result-box .score {
+  font-weight: bold;
+  margin-top: 15px;
+  color: #4c704f;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Back Button */
+.back-button {
+  margin-bottom: 20px;
+}
+
+.back-button a {
+  display: inline-block;
+  background-color: #3c9154;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-button a:hover {
+  background-color: #2f5d34;
+}
+
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+
+    <!-- Back Button -->
+    <div class="back-button">
+      <a href="home.html">&larr; Back to Home</a>
+    </div>
+
+    <h1>🌿 What Kind of Plant Are You?</h1>
+    <p class="quiz-intro">Take this fun quiz to discover your planty personality!</p>
+
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <div class="question">
+        <p>1. How much sunlight do you like? ☀️</p>
+        <label><input type="radio" name="q1" value="1"> Lots of direct sunlight</label><br>
+        <label><input type="radio" name="q1" value="2"> Bright but indirect light</label><br>
+        <label><input type="radio" name="q1" value="3"> Low light & chill vibes</label>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <p>2. Your ideal weekend activity 🌻</p>
+        <label><input type="radio" name="q2" value="1"> Hiking or outdoor adventure</label><br>
+        <label><input type="radio" name="q2" value="2"> Reading by the window</label><br>
+        <label><input type="radio" name="q2" value="3"> Napping indoors 💤</label>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <p>3. How much attention do you like? 🧸</p>
+        <label><input type="radio" name="q3" value="1"> All day every day! 💕</label><br>
+        <label><input type="radio" name="q3" value="2"> Weekly check-ins are fine</label><br>
+        <label><input type="radio" name="q3" value="3"> I thrive solo ✌️</label>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <p>4. What’s your favorite season? 🍁</p>
+        <label><input type="radio" name="q4" value="1"> Summer ☀️</label><br>
+        <label><input type="radio" name="q4" value="2"> Spring 🌸</label><br>
+        <label><input type="radio" name="q4" value="3"> Winter ❄️</label>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <p>5. Pick a color that speaks to you 🎨</p>
+        <label><input type="radio" name="q5" value="1"> Bright yellow 💛</label><br>
+        <label><input type="radio" name="q5" value="2"> Calm green 💚</label><br>
+        <label><input type="radio" name="q5" value="3"> Cool blue 💙</label>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question">
+        <p>6. Your dream home environment? 🏡</p>
+        <label><input type="radio" name="q6" value="1"> Sunny balcony</label><br>
+        <label><input type="radio" name="q6" value="2"> Cozy living room</label><br>
+        <label><input type="radio" name="q6" value="3"> Peaceful study corner</label>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question">
+        <p>7. Choose a word that describes you best 🌟</p>
+        <label><input type="radio" name="q7" value="1"> Energetic ⚡</label><br>
+        <label><input type="radio" name="q7" value="2"> Balanced ☯️</label><br>
+        <label><input type="radio" name="q7" value="3"> Mysterious 🌙</label>
+      </div>
+
+      <button type="submit" class="submit-btn">🌼 Reveal My Plant Match!</button>
+    </form>
+
+    <div id="result" class="result-box" style="display: none;"></div>
+
+  </div>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let score = 0;
+      for (let i = 1; i <= 7; i++) {
+        const answer = document.querySelector('input[name="q' + i + '"]:checked');
+        if (answer) {
+          score += parseInt(answer.value);
+        }
+      }
+
+      const resultBox = document.getElementById("result");
+      resultBox.style.display = "block";
+
+      let message = "";
+      if (score <= 10) {
+        message = "🌵 You're a **Cactus**! Tough, independent, and a total survivor. You thrive in sun and need very little to stay fabulous.";
+      } else if (score <= 15) {
+        message = "🌼 You're a **Peace Lily**! Balanced, beautiful, and calm. You love harmony and bring a refreshing presence.";
+      } else {
+        message = "🌿 You're a **Fern**! Quiet, mysterious, and low-light loving. You shine in calm, cozy spaces and radiate chill energy.";
+      }
+
+      resultBox.innerHTML = `<h2>Your Plant Personality</h2><p>${message}</p><p class="score">Total Score: ${score}/21</p>`;
+    });
+  </script>
+</body>
+</html>

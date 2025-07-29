@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plant Care Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url('bg8.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    header {
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            width: 100%;
+        }
+        nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px; /* Increased spacing */
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+        /* Style for dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Hide dropdown by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 150px;
+    top: 100%;
+    left: 0;
+}
+
+/* Style for dropdown items */
+.dropdown-menu li {
+    padding: 8px 20px;
+}
+
+/* Style for dropdown links */
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 16px;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+    h2 {
+      text-align: center;
+      font-size: 36px;
+      margin: 40px 0 20px;
+      color: rgb(2, 43, 2);
+    }
+
+    .guide-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 10%;
+      gap: 40px;
+    }
+
+    .guide-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .guide-section img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .guide-content {
+      width: 50%;
+    }
+
+    .guide-content h3 {
+      font-size: 28px;
+      color: rgb(2, 43, 2);
+      margin-bottom: 15px;
+    }
+
+    .guide-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .guide-section {
+        flex-direction: column !important;
+        padding: 20px;
+      }
+
+      .guide-content,
+      .guide-section img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+        <img src="logo.jpg" alt="GreenAI Logo">
+        <h1>Sow&Grow</h1>
+    </div>
+    <div class="header-right">
+        <nav>
+            <ul>
+                <li><a href="home.html"><i class="fas fa-home fa-xl"></i></a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="shop-btn"><i class="fas fa-seedling fa-xl"></i> &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="prodcat.html">Plants</a></li>
+                        <li><a href="seeds.html">Seeds</a></li>
+                    </ul>
+                </li>
+                <li><a href="careguide.html"><i class="fas fa-book-open fa-xl"></i></a></li>
+                <li><a href="aboutus.html"><i class="fas fa-people-group fa-xl"></i></a></li>
+                <li><a href="contactus.html"><i class="fas fa-phone fa-xl"></i></a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart fa-xl"></i></a></li>
+                <li><a href="account.html"><i class="fas fa-user fa-xl"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+
+    <div>
+    <h2>Plant Care Guide</h2>
+
+  <section class="guide-section">
+    <img src="watering.jpg" alt="Watering Plants">
+    <div class="guide-content">
+      <h3>1. Watering</h3>
+      <p>Watering needs vary between plant species, but a general rule is to water when the top inch of soil is dry. Avoid overwatering, which can cause root rot. Use pots with drainage holes for best results.</p>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <img src="light.jpg" alt="Sunlight for Plants">
+    <div class="guide-content">
+      <h3>2. Light</h3>
+      <p>Place your plants where they get sufficient natural light. Some like direct sunlight (like succulents), while others thrive in shade (like snake plants). Rotate pots weekly to promote even growth.</p>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <img src="soil.jpg" alt="Soil Mix">
+    <div class="guide-content">
+      <h3>3. Soil</h3>
+      <p>Choose soil based on your plant type. Use well-draining mixes for succulents and cacti, while herbs prefer loamy, nutrient-rich soil. Consider using organic compost for an extra nutrient boost.</p>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <img src="repotting.jpg" alt="Repotting Plant">
+    <div class="guide-content">
+      <h3>4. Repotting</h3>
+      <p>Plants outgrow their pots over time. Repot annually or when roots begin to grow out the bottom. Choose a slightly larger pot and refresh the soil to keep your plant thriving.</p>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <img src="pest.jpg" alt="Pest Control for Plants">
+    <div class="guide-content">
+      <h3>5. Pest Control</h3>
+      <p>Watch out for pests like aphids, spider mites, and fungus gnats. Use neem oil spray or soap water as a natural remedy. Regularly wiping leaves also helps keep pests away.</p>
+    </div>
+  </section>
+  <section class="guide-section">
+    <img src="gardening.jpg" alt="Gardening Tips">
+    <div class="guide-content">
+      <h3>6. Gardening Tips</h3>
+      <p>Start with easy-care plants like pothos, spider plant, or peace lilies. Group similar plants together based on light and water needs. Clean leaves occasionally and gently remove dead foliage to encourage healthy growth.</p>
+    </div>
+  </section>
+  
+  <section class="guide-section">
+    <img src="maintenance.jpg" alt="Plant Maintenance">
+    <div class="guide-content">
+      <h3>7. Maintenance Routine</h3>
+      <p>Check your plants weekly. Monitor soil moisture, leaf color, and any signs of stress. Trim leggy stems and remove yellowing leaves. Dust leaves with a damp cloth to keep them breathing and absorbing light efficiently.</p>
+    </div>
+  </section>
+  
+  <section class="guide-section">
+    <img src="humid.jpg" alt="Humidity for Plants">
+    <div class="guide-content">
+      <h3>8. Humidity & Air</h3>
+      <p>Most indoor plants enjoy humidity. Mist leaves lightly, use a humidifier, or group plants together to create a microclimate. Keep plants away from drafts, AC vents, and heaters to avoid sudden temperature changes.</p>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <img src="fertilize.jpg" alt="When to Fertilize">
+    <div class="guide-content">
+      <h3>9.Fertilize</h3>
+      <p>Fertilize indoor plants during their active growing season (spring and summer). Use a balanced, water-soluble fertilizer every 4-6 weeks. Avoid fertilizing in the fall and winter, as plants tend to be dormant and don't need extra nutrients.</p>
+    </div>
+  </section>
+</div>
+  <footer>
+    <p>&copy; 2025 Sow&Grow. All Rights Reserved.</p>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var shopButton = document.querySelector(".shop-btn");
+        var dropdownMenu = document.querySelector(".dropdown-menu");
+    
+        shopButton.addEventListener("click", function(event) {
+            event.stopPropagation(); // Prevent click from bubbling to document
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        });
+    
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function(event) {
+            if (!dropdownMenu.contains(event.target) && !shopButton.contains(event.target)) {
+                dropdownMenu.style.display = "none";
+            }
+        });
+    });
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>

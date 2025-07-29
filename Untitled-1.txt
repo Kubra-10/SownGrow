@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmation | Nike Pegasus 40</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#000000',secondary:'#f5f5f5'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.tracking-step {
+position: relative;
+}
+.tracking-step:not(:last-child)::after {
+content: "";
+position: absolute;
+top: 14px;
+left: 100%;
+width: 100%;
+height: 2px;
+background-color: #e5e7eb;
+transform: translateX(-50%);
+}
+.tracking-step.active .step-circle {
+background-color: #000;
+border-color: #000;
+}
+.tracking-step.active:not(:last-child)::after {
+background-color: #000;
+}
+.tracking-step.completed .step-circle {
+background-color: #000;
+border-color: #000;
+}
+.tracking-step.completed:not(:last-child)::after {
+background-color: #000;
+}
+.step-circle {
+width: 28px;
+height: 28px;
+border-radius: 50%;
+border: 2px solid #e5e7eb;
+background-color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.confetti {
+position: fixed;
+width: 10px;
+height: 10px;
+background-color: #f0f;
+opacity: 0;
+animation: confetti-fall 3s ease-in-out forwards;
+z-index: 1000;
+}
+@keyframes confetti-fall {
+0% {
+transform: translateY(-100vh) rotate(0deg);
+opacity: 1;
+}
+100% {
+transform: translateY(100vh) rotate(360deg);
+opacity: 0;
+}
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<!-- Logo -->
+<a href="https://readdy.ai/home/5b7c079c-cebc-413b-ade4-c1af0c6e05c8/7ae4b9b2-ee77-4b1a-8e70-1531fd35eb20" data-readdy="true" class="flex items-center space-x-2">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-nike-fill ri-2x"></i>
+</div>
+<span class="text-2xl font-bold">Nike</span>
+</a>
+<!-- Navigation -->
+<nav class="hidden md:flex items-center space-x-8">
+<a href="https://readdy.ai/home/5b7c079c-cebc-413b-ade4-c1af0c6e05c8/7ae4b9b2-ee77-4b1a-8e70-1531fd35eb20" data-readdy="true" class="font-medium hover:text-gray-900">Men</a>
+<a href="#" class="font-medium hover:text-gray-900">Women</a>
+<a href="#" class="font-medium hover:text-gray-900">Kids</a>
+<a href="#" class="font-medium hover:text-gray-900">Collections</a>
+</nav>
+<!-- Icons -->
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 flex items-center justify-center relative">
+<i class="ri-search-line ri-lg"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-user-line ri-lg"></i>
+</div>
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-heart-line ri-lg"></i>
+</div>
+<a href="https://readdy.ai/home/5b7c079c-cebc-413b-ade4-c1af0c6e05c8/7ae4b9b2-ee77-4b1a-8e70-1531fd35eb20" data-readdy="true" class="w-10 h-10 flex items-center justify-center relative">
+<i class="ri-shopping-bag-line ri-lg"></i>
+<span class="absolute -top-1 -right-1 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+</a>
+<div class="w-10 h-10 flex items-center justify-center md:hidden">
+<i class="ri-menu-line ri-lg"></i>
+</div>
+</div>
+</div>
+</header>
+<!-- Confirmation Section -->
+<section class="py-10">
+<div class="container mx-auto px-4">
+<!-- Checkout Progress -->
+<div class="max-w-5xl mx-auto mb-10">
+<div class="flex justify-between items-center">
+<div class="progress-step completed flex flex-col items-center w-1/4">
+<div class="step-number">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-sm mt-2 font-medium">Cart</span>
+</div>
+<div class="progress-step completed flex flex-col items-center w-1/4">
+<div class="step-number">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-sm mt-2 font-medium">Checkout</span>
+</div>
+<div class="progress-step completed flex flex-col items-center w-1/4">
+<div class="step-number">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-sm mt-2 font-medium">Payment</span>
+</div>
+<div class="progress-step active flex flex-col items-center w-1/4">
+<div class="step-number">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-sm mt-2 font-medium">Confirmation</span>
+</div>
+</div>
+</div>
+<div class="max-w-3xl mx-auto">
+<!-- Order Confirmation Header -->
+<div class="text-center mb-10">
+<div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+<div class="w-10 h-10 flex items-center justify-center text-green-500">
+<i class="ri-check-line ri-2x"></i>
+</div>
+</div>
+<h1 class="text-3xl font-bold mb-2">Thank You for Your Order!</h1>
+<p class="text-gray-600">Your order has been successfully placed and is being processed.</p>
+</div>
+<!-- Order Information -->
+<div class="bg-white rounded shadow-sm p-8 mb-8">
+<div class="flex flex-col md:flex-row justify-between mb-6 pb-6 border-b border-gray-200">
+<div class="mb-4 md:mb-0">
+<h2 class="text-sm text-gray-500 mb-1">Order Number</h2>
+<p class="text-lg font-semibold">#NKE-24042512789</p>
+</div>
+<div class="mb-4 md:mb-0">
+<h2 class="text-sm text-gray-500 mb-1">Order Date</h2>
+<p class="text-lg font-semibold">April 24, 2025</p>
+</div>
+<div>
+<h2 class="text-sm text-gray-500 mb-1">Estimated Delivery</h2>
+<p class="text-lg font-semibold">April 29 - May 1, 2025</p>
+</div>
+</div>
+<div class="mb-8">
+<h2 class="text-xl font-bold mb-4">Order Status</h2>
+<div class="flex justify-between mb-6">
+<div class="tracking-step completed flex-1 flex flex-col items-center">
+<div class="step-circle">
+<i class="ri-check-line text-white text-sm"></i>
+</div>
+<p class="text-xs font-medium mt-2">Order Placed</p>
+<p class="text-xs text-gray-500">Apr 24</p>
+</div>
+<div class="tracking-step active flex-1 flex flex-col items-center">
+<div class="step-circle">
+<i class="ri-time-line text-white text-sm"></i>
+</div>
+<p class="text-xs font-medium mt-2">Processing</p>
+<p class="text-xs text-gray-500">Apr 24-25</p>
+</div>
+<div class="tracking-step flex-1 flex flex-col items-center">
+<div class="step-circle">
+<span class="text-xs">3</span>
+</div>
+<p class="text-xs font-medium mt-2">Shipped</p>
+<p class="text-xs text-gray-500">Apr 26-27</p>
+</div>
+<div class="tracking-step flex-1 flex flex-col items-center">
+<div class="step-circle">
+<span class="text-xs">4</span>
+</div>
+<p class="text-xs font-medium mt-2">Delivered</p>
+<p class="text-xs text-gray-500">Apr 29-May 1</p>
+</div>
+</div>
+<div class="flex justify-center">
+<a href="#" class="bg-black text-white px-6 py-3 font-medium !rounded-button whitespace-nowrap flex items-center">
+<i class="ri-map-pin-line mr-2"></i>
+Track Order
+</a>
+</div>
+</div>
+<div class="mb-8">
+<h2 class="text-xl font-bold mb-4">Order Summary</h2>
+<div class="space-y-4 mb-6">
+<!-- Item 1 -->
+<div class="flex items-start pb-4 border-b border-gray-200">
+<img src="https://readdy.ai/api/search-image?query=Nike%252520Pegasus%25252040%252520mens%252520running%252520shoe%252520in%252520black%252520and%252520white%252520color%25252C%252520side%252520view%252520on%252520clean%252520white%252520background%25252C%252520professional%252520product%252520photography&width=120&height=120&seq=16&orientation=squarish" alt="Nike Pegasus 40" class="w-16 h-16 object-cover rounded">
+<div class="ml-3 flex-1">
+<div class="flex justify-between">
+<h3 class="text-sm font-medium">Nike Pegasus 40</h3>
+<span class="text-sm font-medium">$130.00</span>
+</div>
+<p class="text-xs text-gray-600">Men's Road Running Shoes</p>
+<p class="text-xs text-gray-600">Size: 9 | Color: Black/White | Qty: 1</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start pb-4 border-b border-gray-200">
+<img src="https://readdy.ai/api/search-image?query=Nike%252520Pegasus%25252040%252520womens%252520running%252520shoe%252520in%252520light%252520pink%252520and%252520white%252520color%25252C%252520side%252520view%252520on%252520clean%252520white%252520background%25252C%252520professional%252520product%252520photography&width=120&height=120&seq=17&orientation=squarish" alt="Nike Pegasus 40" class="w-16 h-16 object-cover rounded">
+<div class="ml-3 flex-1">
+<div class="flex justify-between">
+<h3 class="text-sm font-medium">Nike Pegasus 40</h3>
+<span class="text-sm font-medium">$130.00</span>
+</div>
+<p class="text-xs text-gray-600">Women's Road Running Shoes</p>
+<p class="text-xs text-gray-600">Size: 7 | Color: Pink/White | Qty: 1</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=Nike%252520running%252520socks%252520in%252520black%252520color%25252C%252520professional%252520product%252520photography%252520on%252520clean%252520white%252520background&width=120&height=120&seq=18&orientation=squarish" alt="Nike Running Socks" class="w-16 h-16 object-cover rounded">
+<div class="ml-3 flex-1">
+<div class="flex justify-between">
+<h3 class="text-sm font-medium">Nike Running Socks</h3>
+<span class="text-sm font-medium">$18.00</span>
+</div>
+<p class="text-xs text-gray-600">Unisex Cushioned Crew Socks</p>
+<p class="text-xs text-gray-600">Size: M | Color: Black | Qty: 1</p>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-200 pt-4 mb-4">
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Subtotal</span>
+<span>$278.00</span>
+</div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Shipping</span>
+<span>Free</span>
+</div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-600">Tax</span>
+<span>$0.00</span>
+</div>
+<div class="flex justify-between font-bold mt-4 pt-4 border-t border-gray-200">
+<span>Total</span>
+<span>$278.00</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+<div>
+<h2 class="text-xl font-bold mb-4">Shipping Address</h2>
+<div class="bg-gray-50 p-4 rounded">
+<p class="font-medium">John Doe</p>
+<p class="text-gray-600">123 Main Street</p>
+<p class="text-gray-600">Apt #123</p>
+<p class="text-gray-600">New York, NY 10001</p>
+<p class="text-gray-600">United States</p>
+<p class="text-gray-600 mt-2">+1 (555) 123-4567</p>
+</div>
+</div>
+<div>
+<h2 class="text-xl font-bold mb-4">Payment Method</h2>
+<div class="bg-gray-50 p-4 rounded">
+<div class="flex items-center mb-2">
+<div class="w-8 h-8 flex items-center justify-center mr-2">
+<i class="ri-visa-fill ri-lg"></i>
+</div>
+<span class="font-medium">Visa ending in 3456</span>
+</div>
+<p class="text-gray-600">Billing address same as shipping</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-center gap-4">
+<a href="https://readdy.ai/home/5b7c079c-cebc-413b-ade4-c1af0c6e05c8/7ae4b9b2-ee77-4b1a-8e70-1531fd35eb20" data-readdy="true" class="bg-black text-white px-6 py-3 font-medium !rounded-button whitespace-nowrap text-center">
+Continue Shopping
+</a>
+<a href="#" class="border border-black px-6 py-3 font-medium !rounded-button whitespace-nowrap text-center">
+View Order Details
+</a>
+</div>
+</div>
+<!-- Additional Information -->
+<div class="bg-white rounded shadow-sm p-8 mb-8">
+<h2 class="text-xl font-bold mb-4">What's Next?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex">
+<div class="w-10 h-10 flex items-center justify-center mr-4 bg-gray-100 rounded-full flex-shrink-0">
+<i class="ri-mail-line"></i>
+</div>
+<div>
+<h3 class="font-medium mb-1">Order Confirmation Email</h3>
+<p class="text-sm text-gray-600">We've sent a confirmation email to john.doe@example.com with all your order details.</p>
+</div>
+</div>
+<div class="flex">
+<div class="w-10 h-10 flex items-center justify-center mr-4 bg-gray-100 rounded-full flex-shrink-0">
+<i class="ri-notification-line"></i>
+</div>
+<div>
+<h3 class="font-medium mb-1">Shipping Updates</h3>
+<p class="text-sm text-gray-600">We'll notify you when your order ships and provide tracking information.</p>
+</div>
+</div>
+<div class="flex">
+<div class="w-10 h-10 flex items-center justify-center mr-4 bg-gray-100 rounded-full flex-shrink-0">
+<i class="ri-customer-service-line"></i>
+</div>
+<div>
+<h3 class="font-medium mb-1">Need Help?</h3>
+<p class="text-sm text-gray-600">Contact our customer service team at <a href="mailto:support@nike.com" class="underline">support@nike.com</a> or call 1-800-806-6453.</p>
+</div>
+</div>
+<div class="flex">
+<div class="w-10 h-10 flex items-center justify-center mr-4 bg-gray-100 rounded-full flex-shrink-0">
+<i class="ri-refresh-line"></i>
+</div>
+<div>
+<h3 class="font-medium mb-1">Return Policy</h3>
+<p class="text-sm text-gray-600">You have 60 days to return unworn items. <a href="#" class="underline">Learn more about our return policy</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-100 pt-16 pb-8 mt-16">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+<!-- Newsletter Section -->
+<div class="lg:col-span-2">
+<h3 class="text-xl font-bold mb-6">Stay Updated</h3>
+<p class="text-gray-600 mb-6">Subscribe to our newsletter to receive updates, news, and exclusive offers.</p>
+<form class="flex flex-col sm:flex-row gap-4 mb-6">
+<input type="email" placeholder="Enter your email address" class="flex-1 px-4 py-3 !rounded-button border border-gray-300 focus:outline-none focus:border-black">
+<button type="submit" class="bg-black text-white px-6 py-3 font-medium !rounded-button whitespace-nowrap">Subscribe</button>
+</form>
+<div class="flex space-x-4">
+<a href="https://facebook.com/nike" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors">
+<i class="ri-facebook-fill text-gray-700"></i>
+</a>
+<a href="https://instagram.com/nike" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors">
+<i class="ri-instagram-line text-gray-700"></i>
+</a>
+<a href="https://twitter.com/nike" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors">
+<i class="ri-twitter-x-line text-gray-700"></i>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h3 class="text-xl font-bold mb-6">Shop</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-600 hover:text-black">Men's Collection</a></li>
+<li><a href="#" class="text-gray-600 hover:text-black">Women's Collection</a></li>
+<li><a href="#" class="text-gray-600 hover:text-black">Kids' Collection</a></li>
+<li><a href="#" class="text-gray-600 hover:text-black">New Arrivals</a></li>
+<li><a href="#" class="text-gray-600 hover:text-black">Sale</a></li>
+</ul>
+</div>
+<!-- Support -->
+<div>
+<h3 class="text-xl font-bold mb-6">Support</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-600 hover:text-black">Contact Us</a></li>
+<li><a href="#" class="text-gray-600 hover:text-black">Shipping & Returns</a></li>
+<li><a href="#" class="text-gray-600 hover:text-black">Size Guide</a></li>
+<li><a href="#" class="text-gray-600 hover:text-black">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-600 hover:text-black">Terms & Conditions</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Section -->
+<div class="border-t border-gray-200 mt-12 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-sm text-gray-600 mb-4 md:mb-0">© 2025 Nike, Inc. All Rights Reserved</p>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-2">
+<span class="text-sm text-gray-600">We accept:</span>
+<div class="flex space-x-2">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-visa-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-mastercard-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-paypal-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Create confetti animation
+function createConfetti() {
+const colors = ['#ff6b6b', '#48dbfb', '#feca57', '#1dd1a1', '#5f27cd'];
+const confettiCount = 100;
+for (let i = 0; i < confettiCount; i++) {
+const confetti = document.createElement('div');
+confetti.className = 'confetti';
+confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+confetti.style.left = Math.random() * 100 + 'vw';
+confetti.style.width = Math.random() * 10 + 5 + 'px';
+confetti.style.height = Math.random() * 10 + 5 + 'px';
+confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+confetti.style.animationDelay = Math.random() * 0.5 + 's';
+document.body.appendChild(confetti);
+// Remove confetti after animation completes
+setTimeout(() => {
+confetti.remove();
+}, 5000);
+}
+}
+// Run confetti once when page loads
+createConfetti();
+});
+</script>
+</body>
+</html>

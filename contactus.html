@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: url('bg9.jpg') no-repeat center center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      color: black;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .logo h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+      width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px; /* Increased spacing */
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: black;
+      text-decoration: none;
+      font-size: 18px;
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      list-style: none;
+      padding: 10px 0;
+      min-width: 150px;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-menu li {
+      padding: 8px 20px;
+    }
+
+    .dropdown-menu li a {
+      text-decoration: none;
+      color: black;
+      display: block;
+      font-size: 16px;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .contact-form {
+      background: white;
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .contact-form h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 80%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      text-align: center;
+      margin: 10px auto;
+      display: block;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: rgb(2,43,2);
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 80%;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px auto;
+      display: block;
+    }
+
+    button:hover {
+      background-color: rgb(16, 94, 16);
+      border: solid 2px;
+    }
+
+    .thank-you-message {
+      display: none;
+      background: #e7f9e7;
+      border: 1px solid #2e7d32;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+      color: #2e7d32;
+      font-size: 18px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .contact-form {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="GreenAI Logo">
+            <h1>Sow&Grow</h1>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home fa-xl"></i></a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="shop-btn" onclick="toggleDropdown()"><i class="fas fa-seedling fa-xl"></i> &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="prodcat.html">Plants</a></li>
+                            <li><a href="seeds.html">Seeds</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="careguide.html"><i class="fas fa-book-open fa-xl"></i></a></li>
+                    <li><a href="aboutus.html"><i class="fas fa-people-group fa-xl"></i></a></li>
+                    <li><a href="contactus.html"><i class="fas fa-phone fa-xl"></i></a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart fa-xl"></i></a></li>
+                    <li><a href="account.html"><i class="fas fa-user fa-xl"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <div class="contact-form">
+    <h2>We'd love to hear from you!</h2>
+    <form id="contactForm" action="https://formsubmit.co/kubrasonaina@gmail.com" method="POST">
+      <!-- Prevent spam -->
+      <input type="hidden" name="_captcha" value="false">
+    
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" required></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Thank You message -->
+    <div class="thank-you-message" id="thankYouMessage">
+      <p>🌱 Thank you for reaching out! Your message has been received, and we'll be in touch soon. 🌿</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var shopButton = document.querySelector(".dropdown > a");
+      var dropdownMenu = document.querySelector(".dropdown-menu");
+    
+      shopButton.addEventListener("click", function(event) {
+        event.stopPropagation(); // Prevent click from bubbling to document
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+      });
+    
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function(event) {
+        if (!dropdownMenu.contains(event.target) && !shopButton.contains(event.target)) {
+          dropdownMenu.style.display = "none";
+        }
+      });
+    });
+
+    // Show thank you message after form submission
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Show the thank you message
+      document.getElementById('thankYouMessage').style.display = 'block';
+      
+      // Optionally hide the form after submission
+      form.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>

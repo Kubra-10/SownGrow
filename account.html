@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Signup</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      background: url('bg9.jpg') no-repeat center center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    header {
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            width: 100%;
+        }
+        nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px; /* Increased spacing */
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+        /* Style for dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Hide dropdown by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 150px;
+    top: 100%;
+    left: 0;
+}
+
+/* Style for dropdown items */
+.dropdown-menu li {
+    padding: 8px 20px;
+}
+
+/* Style for dropdown links */
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 16px;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+    .form-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    .toggle-btn {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .toggle-btn a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .message.success {
+      color: #2e7d32;
+    }
+
+    .message.error {
+      color: red;
+    }
+
+    .form-container p {
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="GreenAI Logo">
+            <h1>Sow&Grow</h1>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home fa-xl"></i></a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="shop-btn" onclick="toggleDropdown()"><i class="fas fa-seedling fa-xl"></i> &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="prodcat.html">Plants</a></li>
+                            <li><a href="seeds.html">Seeds</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="careguide.html"><i class="fas fa-book-open fa-xl"></i></a></li>
+                    <li><a href="aboutus.html"><i class="fas fa-people-group fa-xl"></i></a></li>
+                    <li><a href="contactus.html"><i class="fas fa-phone fa-xl"></i></a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart fa-xl"></i></a></li>
+                    <li><a href="account.html"><i class="fas fa-user fa-xl"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <!-- Form Container -->
+  <div class="form-container">
+    <h2 id="form-title">Login</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" id="submit-btn">Login</button>
+    </form>
+
+    <div class="toggle-btn">
+      <p>Don't have an account? <a href="javascript:void(0);" onclick="toggleForm()">Sign Up</a></p>
+    </div>
+    <div id="response-message" class="message"></div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var shopButton = document.querySelector(".shop-btn");
+        var dropdownMenu = document.querySelector(".dropdown-menu");
+    
+        shopButton.addEventListener("click", function(event) {
+            event.stopPropagation(); // Prevent click from bubbling to document
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        });
+    
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function(event) {
+            if (!dropdownMenu.contains(event.target) && !shopButton.contains(event.target)) {
+                dropdownMenu.style.display = "none";
+            }
+        });
+    });
+    </script>
+  <script>
+    // Simulated database of registered users
+    const registeredEmails = ["user@example.com", "testuser@domain.com"];
+    
+    // Toggle between Login and Sign Up form
+    function toggleForm() {
+      const formTitle = document.getElementById("form-title");
+      const submitBtn = document.getElementById("submit-btn");
+      const form = document.getElementById("login-form");
+      const responseMessage = document.getElementById("response-message");
+
+      if (formTitle.innerText === "Login") {
+        formTitle.innerText = "Sign Up";
+        submitBtn.innerText = "Sign Up";
+        form.innerHTML = `
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+          </div>
+          <button type="submit" id="submit-btn">Sign Up</button>
+        `;
+        document.querySelector(".toggle-btn p a").innerText = "Already have an account? Login";
+        document.querySelector(".toggle-btn p a").setAttribute("onclick", "toggleForm()");
+      } else {
+        formTitle.innerText = "Login";
+        submitBtn.innerText = "Login";
+        form.innerHTML = `
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" id="submit-btn">Login</button>
+        `;
+        document.querySelector(".toggle-btn p a").innerText = "Don't have an account? Sign Up";
+        document.querySelector(".toggle-btn p a").setAttribute("onclick", "toggleForm()");
+      }
+
+      // Clear the response message when switching forms
+      responseMessage.textContent = "";
+    }
+
+    // Handle form submission (Login/Sign Up)
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const responseMessage = document.getElementById("response-message");
+
+      // Simple validation
+      if (!email || !password) {
+        responseMessage.textContent = "Please fill in all fields.";
+        responseMessage.classList.add("error");
+        return;
+      }
+
+      // If on Sign Up form, check if email already exists
+      if (document.getElementById("form-title").innerText === "Sign Up") {
+        const confirmPassword = document.getElementById("confirm-password").value;
+        
+        // Check if the email is already registered
+        if (registeredEmails.includes(email)) {
+          responseMessage.textContent = "Email already exists.";
+          responseMessage.classList.add("error");
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          responseMessage.textContent = "Passwords do not match.";
+          responseMessage.classList.add("error");
+          return;
+        }
+
+        // Simulate successful account creation
+        registeredEmails.push(email); // Add the new email to the "database"
+        responseMessage.textContent = "Welcome to Sow & Grow!🌱";
+        responseMessage.classList.add("success");
+
+        // Simulate sending a welcome email
+        sendWelcomeEmail(email);
+
+        // Clear form fields
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("confirm-password").value = "";
+      } else {
+        // If on Login form, check if email is registered
+        if (!registeredEmails.includes(email)) {
+          responseMessage.textContent = "Email not registered. Please sign up.";
+          responseMessage.classList.add("error");
+          return;
+        }
+
+        responseMessage.textContent = "Logged in successfully!";
+        responseMessage.classList.add("success");
+      }
+    });
+
+    // Simulate sending a welcome email
+    function sendWelcomeEmail(email) {
+      setTimeout(() => {
+        console.log("Sending welcome email to:", email);
+        alert(`Welcome email sent to ${email}`);
+      }, 1000); // Simulated delay for sending email
+    }
+  </script>
+
+</body>
+</html>

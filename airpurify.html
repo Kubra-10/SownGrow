@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indoor Plants - Products</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            background: url(bg8.jpg);
+            background-size: cover;
+        }
+
+        header {
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #search-bar {
+            padding: 8px;
+            font-size: 16px;
+            width: 200px;
+            border-radius: 5px;
+            height: 40px;
+        }
+
+        main {
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color:rgb(2, 43, 2);
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 22%;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 22px;
+            margin-top: 15px;
+            color: rgb(2, 43, 2);
+        }
+
+        .product-card p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #777;
+        }
+
+        .product-card .price {
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .product-card a {
+            background-color: rgb(2, 43, 2);
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .product-card a:hover {
+            background-color: white;
+            color: rgb(2,43,2);
+            border: solid 2px;
+            cursor: pointer;
+        }
+
+        .back-btn {
+            top: 20px;
+            left: 20px;
+            background-color: rgb(2, 43, 2); /* Your green color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            z-index: 1000; /* Ensures it's above other elements */
+        }
+
+        /* Optional hover effect */
+        .back-btn:hover {
+            background-color: rgb(1, 30, 1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            bottom: 0%;
+            right: 0%;
+            left: 0%;
+            position: fixed;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="GreenAI Logo">
+            <h1>Sow&Grow</h1>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home fa-xl"></i></a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="shop-btn" onclick="toggleDropdown()"><i class="fas fa-seedling fa-xl"></i> &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="prodcat.html">Plants</a></li>
+                            <li><a href="seeds.html">Seeds</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="careguide.html"><i class="fas fa-book-open fa-xl"></i></a></li>
+                    <li><a href="aboutus.html"><i class="fas fa-people-group fa-xl"></i></a></li>
+                    <li><a href="contactus.html"><i class="fas fa-phone fa-xl"></i></a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart fa-xl"></i></a></li>
+                    <li><a href="account.html"><i class="fas fa-user fa-xl"></i></a></li>
+                </ul>
+            </nav>
+            <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
+        </div>
+    </header>
+
+    <main>
+        <button class="back-btn" onclick="window.location.href='prodcat.html'">&larr;</button>
+
+        <h2>Our Best Indoor Plants</h2>
+        <div class="product-container" id="product-container">
+            <div class="product-card" data-name="Snake Plant">
+                <img src="snakeplant.avif" alt="Plant 1">
+                <h3>Snake Plant</h3>
+                <p class="price">₹1200</p>
+                <a href="snakeplant.html">View More</a>
+            </div>
+            <div class="product-card" data-name="Peace Lily">
+                <img src="peacelily.jpg" alt="Plant 2">
+                <h3>Peace Lily</h3>
+                <p class="price">₹400</p>
+                <a href="peacelily.html">View More</a>
+            </div>
+            <div class="product-card" data-name="Spider Plant">
+                <img src="spiderplant.jpg" alt="Plant 3">
+                <h3>Spider Plant</h3>
+                <p class="price">₹250</p>
+                <a href="spiderplant.html">View More</a>
+            </div>
+            <div class="product-card" data-name="Aloe Vera">
+                <img src="aloevera.jpg" alt="Plant 4">
+                <h3>Aloe Vera</h3>
+                <p class="price">₹200</p>
+                <a href="aloevera.html">View More</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Indoor Plants Store. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var shopButton = document.querySelector(".shop-btn");
+            var dropdownMenu = document.querySelector(".dropdown-menu");
+        
+            shopButton.addEventListener("click", function(event) {
+                event.stopPropagation();
+                dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+            });
+        
+            document.addEventListener("click", function(event) {
+                if (!dropdownMenu.contains(event.target) && !shopButton.contains(event.target)) {
+                    dropdownMenu.style.display = "none";
+                }
+            });
+        });
+
+        function searchProducts() {
+            const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+            const productCards = document.querySelectorAll(".product-card");
+
+            productCards.forEach(card => {
+                const productName = card.getAttribute("data-name").toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

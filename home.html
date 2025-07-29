@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Plant Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('img1.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            color: white;
+            height: 100%;
+            scroll-padding-top: 4rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        /* Hero Section */
+        #hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+            height: 60vh;
+            background: url('hero-bg.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        #hero .hero-content {
+            text-align: left;
+            color: white;
+            max-width: 500px;
+        }
+
+        #hero h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        #hero p {
+            font-size: 20px;
+        }
+
+        #hero button {
+            background: rgb(2, 43, 2);
+            border: black;
+            left: 25px;
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            border-radius: 25px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p a:hover {
+            text-decoration: underline;
+        }
+
+        .quiz {
+            background-color: #3c9154;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .quiz:hover {
+            background-color: #2f5d34;
+        }
+
+        #hero button:hover {
+            background-color: rgb(16, 94, 16);
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        /* Content Section */
+        #content {
+            display: flex;
+            justify-content: flex-end;
+            padding: 40px 20px;
+        }
+
+        #content h2,
+        #content p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        #content .content-text {
+            text-align: left;
+            max-width: 700px;
+        }
+
+        #content h2 {
+            font-size: 45px;
+            margin: 0;
+        }
+
+        #content p {
+            font-size: 22px;
+        }
+        .left-image {
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      width: 300px;
+      height: 300px;
+      border-radius: 175px;
+      object-fit: cover;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+
+        .toptitle {
+            background-color: rgb(2, 43, 2);
+            padding: 6%;
+            color: white;
+            border: none;
+            border-radius: 25px;
+        }
+
+        /* Top Plants Section */
+        .top-plants-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plants-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plant-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .plant-card:hover {
+            transform: scale(1.05);
+        }
+
+        .plant-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .plant-card h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .plant-card .reviews {
+            font-size: 18px;
+            color: #FF9800;
+        }
+
+        /* Feature Image Section */
+        .feature-image {
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+.feature-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #f2f2f2;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+    color: #333;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<header>
+<div class="logo">
+    <img src="logo.jpg" alt="GreenAI Logo">
+    <h1>Sow&Grow</h1>
+</div>
+<div class="header-right">
+    <nav>
+        <ul>
+            <li><a href="home.html"><i class="fas fa-home fa-xl"></i></a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="shop-btn"><i class="fas fa-seedling fa-xl"></i> &#9662;</a>
+                <ul class="dropdown-menu">
+                    <li><a href="prodcat.html">Plants</a></li>
+                    <li><a href="seeds.html">Seeds</a></li>
+                </ul>
+            </li>
+            <li><a href="careguide.html"><i class="fas fa-book-open fa-xl"></i></a></li>
+            <li><a href="aboutus.html"><i class="fas fa-people-group fa-xl"></i></a></li>
+            <li><a href="contactus.html"><i class="fas fa-phone fa-xl"></i></a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart fa-xl"></i></a></li>
+            <li><a href="account.html"><i class="fas fa-user fa-xl"></i></a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+<img src="img2.jpg" alt="Indoor Plant" class="left-image" data-aos="zoom-in" />
+<div style="height: 90px;"></div> <!-- Space to offset fixed header -->
+
+<section id="hero" data-aos="fade-in">
+<div class="hero-content">
+    <section id="content">
+        <div class="content-text">
+            <h2 class="hero-title">WELCOME TO YOUR GREEN OASIS!</h2>
+            <p>Discover a world of vibrant indoor plants, premium seeds, and expert care guides. Browse our collection and bring nature into your home. 🌿</p>
+        </div>
+    </section>
+
+    <div class="hero-buttons">
+        <button class="quiz" onclick='window.location.href="quiz.html"'>🌿 Take the Plant Quiz</button>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://facebook.com"><img src="facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com"><img src="instagram.png" alt="Instagram"></a>
+        <a href="https://x.com"><img src="twitter.png" alt="X"></a>
+    </div>
+</div>
+</section>
+
+<div class="top-plants-section">
+<div>
+    <h1 class="toptitle">Top 4 Best Plants of the Week</h1>
+</div>
+<div class="plants-grid">
+    <div class="plant-card">
+        <img src="snakeplant.avif" alt="Snake Plant">
+        <h3>Snake Plant</h3>
+        <p class="reviews">★★★★☆ (4.5/5)</p>
+    </div>
+    <div class="plant-card">
+        <img src="peacelily.jpg" alt="Peace Lily">
+        <h3>Peace Lily</h3>
+        <p class="reviews">★★★★★ (5/5)</p>
+    </div>
+    <div class="plant-card">
+        <img src="spiderplant.jpg" alt="Spider Plant">
+        <h3>Spider Plant</h3>
+        <p class="reviews">★★★★☆ (4.3/5)</p>
+    </div>
+    <div class="plant-card">
+        <img src="zzplant.webp" alt="ZZ Plant">
+        <h3>ZZ Plant</h3>
+        <p class="reviews">★★★★☆ (4.7/5)</p>
+    </div>
+</div>
+</div>
+
+<section class="feature-image">
+<img src="fp.png" alt="Feature Image">
+</section>
+
+<footer class="footer">
+<div class="footer-container">
+    <div class="footer-column">
+        <h4>Legal</h4>
+        <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+    </div>
+    <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+        </ul>
+    </div>
+    <div class="footer-column">
+        <h4>Get Involved</h4>
+        <ul>
+            <li><a href="quiz.html">🌱 Take Our Plant Quiz</a></li>
+        </ul>
+    </div>
+</div>
+<div class="footer-bottom">
+    <p>&copy; 2025 SownGrow. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+// Dropdown toggle
+document.addEventListener("DOMContentLoaded", function () {
+    var shopButton = document.querySelector(".shop-btn");
+    var dropdownMenu = document.querySelector(".dropdown-menu");
+
+    shopButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!dropdownMenu.contains(event.target) && !shopButton.contains(event.target)) {
+            dropdownMenu.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+
+ 

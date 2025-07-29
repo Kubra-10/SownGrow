@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            background: url('bg9.jpg') no-repeat center center;
+            color: #333;
+            padding: 20px;
+        }
+
+        header {
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            width: 100%;
+        }
+        nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px; /* Increased spacing */
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+        /* Style for dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Hide dropdown by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 150px;
+    top: 100%;
+    left: 0;
+}
+
+/* Style for dropdown items */
+.dropdown-menu li {
+    padding: 8px 20px;
+}
+
+/* Style for dropdown links */
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 16px;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+        .payment-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+        }
+
+        input[type="text"], input[type="number"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: rgb(2, 43, 4);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: rgb(16, 94, 16);
+        }
+
+        .success-message {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="GreenAI Logo">
+            <h1>Sow&Grow</h1>
+        </div>
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home fa-xl"></i></a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="shop-btn" onclick="toggleDropdown()"><i class="fas fa-seedling fa-xl"></i> &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="prodcat.html">Plants</a></li>
+                            <li><a href="seeds.html">Seeds</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="careguide.html"><i class="fas fa-book-open fa-xl"></i></a></li>
+                    <li><a href="aboutus.html"><i class="fas fa-people-group fa-xl"></i></a></li>
+                    <li><a href="contactus.html"><i class="fas fa-phone fa-xl"></i></a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart fa-xl"></i></a></li>
+                    <li><a href="account.html"><i class="fas fa-user fa-xl"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1>PayPal Payment</h1>
+
+    <div class="payment-container">
+        <h3>Total Amount: ₹<span id="totalAmount"></span></h3>
+        <form id="paypalForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="address" placeholder="Your Address" required>
+            <input type="tel" id="phone" placeholder="Your Phone Number" required>
+            <button type="submit">Proceed with PayPal</button>
+        </form>
+    </div>
+
+    <div id="successMessage" class="success-message" style="display: none;">
+        <h2>Payment Successful!</h2>
+        <p>🌱 Payment Successful! Your order has been placed. 🌿</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Indoor Plants Store. All Rights Reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var shopButton = document.querySelector(".shop-btn");
+            var dropdownMenu = document.querySelector(".dropdown-menu");
+        
+            shopButton.addEventListener("click", function(event) {
+                event.stopPropagation(); // Prevent click from bubbling to document
+                dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+            });
+        
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function(event) {
+                if (!dropdownMenu.contains(event.target) && !shopButton.contains(event.target)) {
+                    dropdownMenu.style.display = "none";
+                }
+            });
+        });
+        </script>
+    <script>
+        document.getElementById('paypalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Retrieve user details from localStorage
+            const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+
+            if (name && address && phone) {
+                // Show the success message
+                document.getElementById('successMessage').style.display = 'block';
+
+                // You can store the order info if necessary or send it to your backend here
+                // For now, we simulate a payment confirmation
+
+                // Hide the form after successful submission
+                document.querySelector('.payment-container').style.display = 'none';
+            } else {
+                alert('Please fill out all fields');
+            }
+        });
+
+        // Calculate total price from cart items
+document.addEventListener("DOMContentLoaded", function () {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = 0;
+
+    cart.forEach(item => {
+        const price = parseFloat(item.price.replace(/[^\d.]/g, ""));
+        if (!isNaN(price)) total += price;
+    });
+
+    document.getElementById("totalAmount").textContent = total.toFixed(2);
+});
+
+    </script>
+</body>
+</html>
